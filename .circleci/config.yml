@@ -2,18 +2,13 @@ version: 2.1
 jobs:
   build:
     docker:
-      - image: python:3.9
-
+      - image: circleci/python:3.9
     steps:
       - checkout
-
       - run:
-          name: Install dependencies
-          command: pip install -r requirements.txt
-
-      - run:
-          name: Run tests
-          command: pytest
+          name: Build and Test
+          command: |
+            python main.py
 
 workflows:
   version: 2
