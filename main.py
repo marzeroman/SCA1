@@ -1,10 +1,19 @@
+import sys
 from calculator import Calculator
 
 def main():
     calc = Calculator()
-    print("Enter two numbers:")
-    a = float(input("First number: "))
-    b = float(input("Second number: "))
+
+    if len(sys.argv) != 3:
+        print("Error: Please provide two numbers as command-line arguments.")
+        sys.exit(1)
+
+    try:
+        a = float(sys.argv[1])
+        b = float(sys.argv[2])
+    except ValueError:
+        print("Error: Invalid number format.")
+        sys.exit(1)
 
     print("Select operation:")
     print("1. Add")
