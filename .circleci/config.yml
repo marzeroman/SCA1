@@ -5,10 +5,10 @@ jobs:
       - image: circleci/python:3.9
     steps:
       - checkout
-      - run:
-          name: Build and Test
-          command: |
-            python main.py
+      - - run:
+            name: Build and Test
+            command: python main.py 5 3
+
 
 workflows:
   version: 2
