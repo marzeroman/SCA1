@@ -6,9 +6,26 @@ jobs:
       - image: circleci/python:3.9
     steps:
       - checkout
-      - run: python3 main.py 5 10 1  # Replace 5, 10, and 1 with your desired values
+      - run: python3 main.py 5 10
+
+  test:
+    working_directory: ~/circleci-python
+    docker:
+      - image: circleci/python:3.9
+    steps:
+      - checkout
+      - run:
+          name: Install dependencies
+          command: pip install -r requirements.txt
+      - run:
+          name: Run tests
+          command: python -m unittest discover
 
 workflows:
-  build:
+  version: 2
+  build_and_test:
     jobs:
       - build
+      - test:
+          requires:
+            - build
