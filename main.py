@@ -4,24 +4,17 @@ from calculator import Calculator
 def main():
     calc = Calculator()
 
-    if len(sys.argv) != 3:
-        print("Error: Please provide two numbers as command-line arguments.")
+    if len(sys.argv) != 4:
+        print("Error: Please provide three command-line arguments.")
         sys.exit(1)
 
     try:
         a = float(sys.argv[1])
         b = float(sys.argv[2])
-    except ValueError:
-        print("Error: Invalid number format.")
+        choice = int(sys.argv[3])
+    except (ValueError, IndexError):
+        print("Error: Invalid arguments.")
         sys.exit(1)
-
-    print("Select operation:")
-    print("1. Add")
-    print("2. Subtract")
-    print("3. Multiply")
-    print("4. Divide")
-
-    choice = int(input("Enter choice (1-4): "))
 
     if choice == 1:
         result = calc.add(a, b)
