@@ -9,7 +9,7 @@ jobs:
       - checkout
       - run:
           name: Run main.py
-          command: python3 main.py
+          command: python3 main.py 1 2 3
 
   test:
     working_directory: ~/circleci-python
