@@ -1,4 +1,5 @@
 version: 2.1
+
 jobs:
   build:
     working_directory: ~/circleci-python
@@ -7,8 +8,8 @@ jobs:
     steps:
       - checkout
       - run:
-          name: Install dependencies
-          command: pip install -r requirements.txt
+          name: Run main.py
+          command: python3 main.py
 
   test:
     working_directory: ~/circleci-python
@@ -16,9 +17,6 @@ jobs:
       - image: circleci/python:3.9
     steps:
       - checkout
-      - run:
-          name: Install dependencies
-          command: pip install -r requirements.txt
       - run:
           name: Run tests
           command: python -m unittest discover
