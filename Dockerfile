@@ -8,4 +8,4 @@ WORKDIR /app
 COPY main.py calculator.py /app/
 
 # Set the entrypoint command to run the main.py script
-CMD ["python", "main.py"]
+CMD ["python3", "main.py", "5", "10", "15"]
